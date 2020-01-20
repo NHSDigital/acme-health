@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "acme-health"
+version = "0.1.0"
+description = ""
+authors = ["Alex Hawdon <alex.hawdon@airelogic.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.46.0"
+uvicorn = "^0.11.1"
+jinja2 = "^2.10.3"
+aiofiles = "^0.4.0"
+httpx = "^0.11.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+flake8 = "^3.7.9"
+black = {version = "^19.10b0", allow-prereleases = true}
+rope = "^0.16.0"
+
+[tool.poetry.scripts]
+serve = "main:app"
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
