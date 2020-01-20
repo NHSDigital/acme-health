@@ -5,7 +5,7 @@ from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 import httpx
 from urllib.parse import urlencode
-
+import os
 
 app = FastAPI()
 
@@ -13,11 +13,14 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-OAUTH_SERVER_BASE_PATH = "https://emea-demo8-test.apigee.net/oauth2/v1/"
-
-CLIENT_ID = "b8WffiMHdLiT5sEehUr6t7rX7PEGgRG9"  # App API Key in Apigee
-CLIENT_SECRET = "X9zDVizlhqaBFKsK"  # App API Secret in Apigee
-REDIRECT_URI = "https://acme-health.herokuapp.com/callback"
+OAUTH_SERVER_BASE_PATH = os.environ.get(
+    "OAUTH_SERVER_BASE_BATH", "https://emea-demo8-test.apigee.net/oauth2/v1/"
+)
+REDIRECT_URI = os.environ.get(
+    "REDIRECT_URI", "https://acme-health.herokuapp.com/callback"
+)
+CLIENT_ID = os.environ["CLIENT_ID"]  # App API Key in Apigee
+CLIENT_SECRET = os.environ["CLIENT_SECRET"]  # App API Secret in Apigee
 
 
 @app.get("/")
