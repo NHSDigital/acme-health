@@ -17,7 +17,7 @@ OAUTH_SERVER_BASE_PATH = "https://emea-demo8-test.apigee.net/oauth2/v1/"
 
 CLIENT_ID = "b8WffiMHdLiT5sEehUr6t7rX7PEGgRG9"  # App API Key in Apigee
 CLIENT_SECRET = "X9zDVizlhqaBFKsK"  # App API Secret in Apigee
-REDIRECT_URI = "https://acme-health.herokuapp.com"
+REDIRECT_URI = "https://acme-health.herokuapp.com/callback"
 
 
 @app.get("/")
