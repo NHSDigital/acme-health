@@ -41,19 +41,20 @@ def read_root(request: Request):
 
 @app.get("/callback")
 def do_callback(request: Request, code: str, state: str, scope: str):
+    formdata = {
+        "grant_type": "authorization_code",
+        "code": code,
+        "redirect_uri": REDIRECT_URI,
+        "client_id": CLIENT_ID,
+        "client_secret": CLIENT_SECRET,
+    }
     r = httpx.post(
         OAUTH_SERVER_BASE_PATH + "token",
-        data={
-            "grant_type": "authorization_code",
-            "code": code,
-            "redirect_uri": REDIRECT_URI,
-            "client_id": CLIENT_ID,
-            "client_secret": CLIENT_SECRET,
-        },
+        data=formdata,
         auth=(CLIENT_ID, CLIENT_SECRET),
     )
     return templates.TemplateResponse(
-        "callback.html", {"request": request, "response": r}
+        "callback.html", {"request": request, "response": r, "formdata": formdata}
     )
 
 

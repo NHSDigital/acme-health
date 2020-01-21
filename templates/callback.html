@@ -1,7 +1,37 @@
-{% extends "base.html" %}
-{% block content %}
-<div id="token">
-    <h2>Access Token</h2>
-    <div id="access_token" class="code">{{ response.text }}</div>
-</div>
+{% extends "base.html" %} {% block content %}
+<h1>Code-for-Token Exchange</h1>
+<h2>Request</h2>
+<h3>URL</h3>
+<div class="code">POST {{ response.url }}</div>
+<h3>Headers</h3>
+<table>
+    {% for header in response.request.headers %}
+    <tr>
+        <td class="code">{{ header }}</td>
+        <td class="code">{{ response.request.headers[header] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<h3>Formdata</h3>
+<table>
+    {% for key in formdata %}
+    <tr>
+        <td class="code">{{ key }}</td>
+        <td class="code">{{ formdata[key] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<h2>Response</h2>
+<h3 class="code">{{ response.status_code }} {{ response.reason_phrase }}</h3>
+<h3>Headers</h3>
+<table>
+    {% for header in response.headers %}
+    <tr>
+        <td class="code">{{ header }}</td>
+        <td class="code">{{ response.headers[header] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<h3>Content</h3>
+<div id="access_token" class="code">{{ response.text }}</div>
 {% endblock %}

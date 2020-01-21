@@ -5,7 +5,7 @@ body {
     font-family: arial, sans-serif;
 }
 
-@media(max-width: 400px) {
+@media(max-width: 800px) {
     body {
         padding: 10px;
     }
@@ -22,7 +22,7 @@ body {
 }
 
 .content {
-    max-width: 400px;
+    max-width: 800px;
 }
 
 h2 {
@@ -31,7 +31,7 @@ h2 {
 
 .code {
     font-family: "Courier New", "Courier", monospace;
-    width: 100%;
+    /* width: 100%; */
     padding: 4px;
     border: 1px #ccc solid;
     border-radius: 4px;
