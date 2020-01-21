@@ -6,6 +6,7 @@ from starlette.templating import Jinja2Templates
 import httpx
 from urllib.parse import urlencode
 import os
+from pprint import pformat
 
 app = FastAPI()
 
@@ -54,7 +55,13 @@ def do_callback(request: Request, code: str, state: str, scope: str):
         auth=(CLIENT_ID, CLIENT_SECRET),
     )
     return templates.TemplateResponse(
-        "callback.html", {"request": request, "response": r, "formdata": formdata}
+        "callback.html",
+        {
+            "request": request,
+            "response": r,
+            "formdata": formdata,
+            "pretty_response": pformat(r.json()),
+        },
     )
 
 
