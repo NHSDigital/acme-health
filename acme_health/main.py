@@ -20,6 +20,8 @@ OAUTH_SERVER_BASE_PATH = os.environ.get(
 REDIRECT_URI = os.environ.get(
     "REDIRECT_URI", "https://acme-health.herokuapp.com/callback"
 )
+OAUTH_SCOPES = os.environ.get("OAUTH_SCOPES", "read")
+
 CLIENT_ID = os.environ["CLIENT_ID"]  # App API Key in Apigee
 CLIENT_SECRET = os.environ["CLIENT_SECRET"]  # App API Secret in Apigee
 
@@ -28,7 +30,7 @@ CLIENT_SECRET = os.environ["CLIENT_SECRET"]  # App API Secret in Apigee
 def read_root(request: Request):
     query_params = {
         "client_id": CLIENT_ID,
-        "scope": "openid",
+        "scope": OAUTH_SCOPES,
         "redirect_uri": REDIRECT_URI,
         "response_type": "code",
         "state": "1234567890",
