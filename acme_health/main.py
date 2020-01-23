@@ -15,7 +15,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 OAUTH_SERVER_BASE_PATH = os.environ.get(
-    "OAUTH_SERVER_BASE_BATH", "https://emea-demo8-test.apigee.net/oauth2/v1/"
+    "OAUTH_SERVER_BASE_PATH", "https://emea-demo8-test.apigee.net/oauth2/v1/"
 )
 REDIRECT_URI = os.environ.get(
     "REDIRECT_URI", "https://acme-health.herokuapp.com/callback"
