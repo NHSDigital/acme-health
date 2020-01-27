@@ -4,12 +4,14 @@ Dummy application to demonstrate Apigee OAuth integration
 
 ## Configuration
 
-| Environment Variable     | Purpose                                       | Default                                         |
+| Environment Variable     | Purpose                                       | Example                                         |
 | ------------------------ | --------------------------------------------- | ----------------------------------------------- |
-| `OAUTH_SERVER_BASE_PATH` | Base path of Apigee API Proxy handling OAuth  | `https://emea-demo8-test.apigee.net/oauth2/v1/` |
+| `CLIENT_ID`              | Client App Key                                | `b8WffiMHdLiT5sEehUr6t7rX7PEGXXXX`              |
+| `CLIENT_SECRET`          | Client App Secret                             | `X9zDVizlhqaBFXXX`                              |
 | `REDIRECT_URI`           | Redirect URI of registered Client Application | `https://acme-health.herokuapp.com/callback`    |
-| `CLIENT_ID`              | Client App Key                                |                                                 |
-| `CLIENT_SECRET`          | Client App Secret                             |                                                 |
+| `OAUTH_SERVER_BASE_PATH` | Base path of Apigee API Proxy handling OAuth  | `https://emea-demo8-test.apigee.net/oauth2/v1/` |
+| `APP_NAME`               | Display name for the 'app'                    | `Acme Health Pro`                               |
+| `OAUTH_SCOPES`           | Scopes to be requested (space-separated)      | `read write`                                    |
 
 :bulb: Consider using [direnv](https://direnv.net/) during local development.
 

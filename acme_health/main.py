@@ -14,16 +14,13 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-OAUTH_SERVER_BASE_PATH = os.environ.get(
-    "OAUTH_SERVER_BASE_PATH", "https://emea-demo8-test.apigee.net/oauth2/v1/"
-)
-REDIRECT_URI = os.environ.get(
-    "REDIRECT_URI", "https://acme-health.herokuapp.com/callback"
-)
-OAUTH_SCOPES = os.environ.get("OAUTH_SCOPES", "read")
-
-CLIENT_ID = os.environ["CLIENT_ID"]  # App API Key in Apigee
-CLIENT_SECRET = os.environ["CLIENT_SECRET"]  # App API Secret in Apigee
+# Configure
+OAUTH_SERVER_BASE_PATH = os.environ["OAUTH_SERVER_BASE_PATH"]
+REDIRECT_URI = os.environ["REDIRECT_URI"]
+OAUTH_SCOPES = os.environ["OAUTH_SCOPES"]
+CLIENT_ID = os.environ["CLIENT_ID"]
+CLIENT_SECRET = os.environ["CLIENT_SECRET"]
+APP_NAME = os.environ["APP_NAME"]
 
 
 @app.get("/")
