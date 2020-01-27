@@ -40,7 +40,7 @@ def read_root(request: Request):
 
 
 @app.get("/callback")
-def do_callback(request: Request, code: str, state: str, scope: str):
+def do_callback(request: Request, code: str, state: str, scope: str = ""):
     formdata = {
         "grant_type": "authorization_code",
         "code": code,
