@@ -48,11 +48,8 @@ def do_callback(request: Request, code: str, state: str, scope: str = ""):
         "client_id": CLIENT_ID,
         "client_secret": CLIENT_SECRET,
     }
-    r = httpx.post(
-        OAUTH_SERVER_BASE_PATH + "token",
-        data=formdata,
-        auth=(CLIENT_ID, CLIENT_SECRET),
-    )
+    r = httpx.post(OAUTH_SERVER_BASE_PATH + "token", data=formdata)
+
     return templates.TemplateResponse(
         "callback.html",
         {
