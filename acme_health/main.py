@@ -17,7 +17,6 @@ templates = Jinja2Templates(directory="templates")
 # Configure
 OAUTH_SERVER_BASE_PATH = os.environ["OAUTH_SERVER_BASE_PATH"]
 REDIRECT_URI = os.environ["REDIRECT_URI"]
-OAUTH_SCOPES = os.environ["OAUTH_SCOPES"]
 CLIENT_ID = os.environ["CLIENT_ID"]
 CLIENT_SECRET = os.environ["CLIENT_SECRET"]
 APP_NAME = os.environ["APP_NAME"]
@@ -27,7 +26,6 @@ APP_NAME = os.environ["APP_NAME"]
 def read_root(request: Request):
     query_params = {
         "client_id": CLIENT_ID,
-        "scope": OAUTH_SCOPES,
         "redirect_uri": REDIRECT_URI,
         "response_type": "code",
         "state": "1234567890",
@@ -40,7 +38,7 @@ def read_root(request: Request):
 
 
 @app.get("/callback")
-def do_callback(request: Request, code: str, state: str, scope: str = ""):
+def do_callback(request: Request, code: str, state: str):
     formdata = {
         "grant_type": "authorization_code",
         "code": code,
