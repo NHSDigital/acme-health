@@ -8,7 +8,7 @@ authors = ["Alex Hawdon <alex.hawdon@airelogic.com>"]
 python = "^3.8"
 fastapi = "^0.46.0"
 uvicorn = "^0.11.1"
-jinja2 = "^2.10.3"
+jinja2 = "^3.1.4"
 aiofiles = "^0.4.0"
 httpx = "^0.11.0"
 
